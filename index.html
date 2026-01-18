@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L4 8V16C4 22.6 9.4 28 16 28C22.6 28 28 22.6 28 16V8L16 2Z" fill="#10B981"/>
+                    <path d="M16 6L8 10V16C8 20.4 11.6 24 16 24C20.4 24 24 20.4 24 16V10L16 6Z" fill="#34D399"/>
+                </svg>
+                <span>CarbonTracker</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#track">Track</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Track Your Carbon Footprint</h1>
+                <p>Monitor and reduce your environmental impact with real-time tracking and personalized insights</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <div class="earth-visualization">
+                    <div class="earth-circle"></div>
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="dashboard">
+            <div class="container">
+                <h2 class="section-title">Your Carbon Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                                <path d="M2 17L12 22L22 17"/>
+                                <path d="M2 12L12 17L22 12"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Footprint</h3>
+                            <p class="stat-value">4.2 <span>tons CO₂</span></p>
+                            <p class="stat-change positive">↓ 12% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2V22M12 2L8 6M12 2L16 6M12 22L8 18M12 22L16 18"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>This Month</h3>
+                            <p class="stat-value">0.8 <span>tons CO₂</span></p>
+                            <p class="stat-change positive">↓ 5% from last month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6V12L16 14"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Goal Progress</h3>
+                            <p class="stat-value">68<span>%</span></p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12H18L15 21L9 3L6 12H2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Ranking</h3>
+                            <p class="stat-value">#1,234</p>
+                            <p class="stat-change">Top 15% globally</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3>Carbon Footprint Over Time</h3>
+                    <div class="chart-container">
+                        <canvas id="carbonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="track" class="track-section">
+            <div class="container">
+                <h2 class="section-title">Track Your Activities</h2>
+                <div class="track-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon transport">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 17H2L4 7H20L22 17H19M5 17C5 18.1 5.9 19 7 19C8.1 19 9 18.1 9 17M5 17C5 15.9 5.9 15 7 15C8.1 15 9 15.9 9 17M19 17C19 18.1 19.9 19 21 19C22.1 19 23 18.1 23 17M19 17C19 15.9 19.9 15 21 15C22.1 15 23 15.9 23 17"/>
+                            </svg>
+                        </div>
+                        <h3>Transportation</h3>
+                        <p class="activity-value">1.2 tons CO₂</p>
+                        <button class="activity-button">Add Entry</button>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon energy">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2V4M12 20V22M4 12H2M6.314 6.314L4.9 4.9M17.686 6.314L19.1 4.9M6.314 17.686L4.9 19.1M17.686 17.686L19.1 19.1M22 12H20M17 12C17 14.761 14.761 17 12 17C9.239 17 7 14.761 7 12C7 9.239 9.239 7 12 7C14.761 7 17 9.239 17 12Z"/>
+                            </svg>
+                        </div>
+                        <h3>Energy</h3>
+                        <p class="activity-value">2.1 tons CO₂</p>
+                        <button class="activity-button">Add Entry</button>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon food">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C8 2 4.5 3.5 2 6C2 13 6 18 12 20C18 18 22 13 22 6C19.5 3.5 16 2 12 2Z"/>
+                                <path d="M12 8V12M12 12L15 15M12 12L9 15"/>
+                            </svg>
+                        </div>
+                        <h3>Food</h3>
+                        <p class="activity-value">0.6 tons CO₂</p>
+                        <button class="activity-button">Add Entry</button>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon shopping">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z"/>
+                                <path d="M3 6H21M8 10V16M12 10V16M16 10V16"/>
+                            </svg>
+                        </div>
+                        <h3>Shopping</h3>
+                        <p class="activity-value">0.3 tons CO₂</p>
+                        <button class="activity-button">Add Entry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insights" class="insights-section">
+            <div class="container">
+                <h2 class="section-title">Insights & Recommendations</h2>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-badge positive">Great Job!</div>
+                        <h3>Transportation Efficiency</h3>
+                        <p>You've reduced your transportation emissions by 15% this month. Consider carpooling or using public transport more often.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-badge warning">Action Needed</div>
+                        <h3>Energy Consumption</h3>
+                        <p>Your energy usage is above average. Try switching to LED bulbs and reducing heating/cooling usage.</p>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-badge info">Tip</div>
+                        <h3>Diet Impact</h3>
+                        <p>Reducing meat consumption by 2 meals per week could save 0.3 tons CO₂ annually.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CarbonTracker</h4>
+                    <p>Helping you reduce your carbon footprint, one step at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#track">Track</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CarbonTracker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
